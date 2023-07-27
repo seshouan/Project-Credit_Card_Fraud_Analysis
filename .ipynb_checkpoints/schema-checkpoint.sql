@@ -7,9 +7,9 @@ CREATE TABLE card_holder (
 
 CREATE TABLE credit_card (
     card VARCHAR(20),
-    card_holder_id INT,
+    cardholder_id INT,
     CONSTRAINT credit_cardPK PRIMARY KEY (card),
-    FOREIGN KEY (card_holder_id) REFERENCES card_holder (id)
+    FOREIGN KEY (cardholder_id) REFERENCES card_holder (id)
 );
 
 CREATE TABLE merchant_category (
