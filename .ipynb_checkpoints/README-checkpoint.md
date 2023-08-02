@@ -32,14 +32,15 @@ Some fraudulent charges are made in small amounts, so that cardholders don't min
 Some fraudulent charges are made early in the day, when individuals are typically not awake. We analysed the number of such charges per customer, 
 <br><br>
 <u>Our approach:</u>
-1. Group charges by cardholder
-2. Identify the number of transactions by cardholders that are at or below \\$2.00
-3. For the customers with the most transactions under \\$2.00, determine whether they are a pattern or an exception
-4. Visualize the transaction patterns for Customers 2 and 18 to determine observable instances of potential fraud
+1. Identify the transactions made between 7 and 9am
+2. Order the above in descending order
+3. Determine whether the amounts, number of transactions by the same customers, and merchant types make sense during that time period
 
 <u>Results:</u>
-1. 
-2. 
+1. The 100 highest transactions include 9 transactions ranging from \\$100.00 to \\$1894.00, which at first seems suspicious for a couple of such large amounts to be transacted early in the morning; however, when looking at the corresponding merchant category, we observe that these charges are from bars that may be closing outstanding credit card charges left open overnight
+2. The restaurant charges for Customers 1 and 16 that amount to more than \\$1,000.00 are highly suspicious for that time of the day
+3. The coffee shop charge for Customer 9 of \\$1,009.00 is quite high for such a merchant and could be a case of fraud
+4. Given the longer tail of transactions less than \\$2.00 from restaurants and bars between 9am and 6pm, it appears that more fraud happens during that period of time than from 7 to 9am, where there is only a handful of transactions above \\$100.00 and a much shorter tail of transactions less than \\$2.00.
 
 ### TARGETTED ANALYSIS OF CUSTOMERS 2 and 18'S CREDIT CARD USAGE
 
