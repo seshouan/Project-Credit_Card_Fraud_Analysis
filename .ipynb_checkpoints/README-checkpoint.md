@@ -9,6 +9,8 @@ To properly run this code, you need to enter your own postgress user and passwor
 3. Save and rename '.env_sample' to '.env'
 4. Execute the code
 
+NOTE: sql querries, other than the schema creating tables, are embedded in the ipynb analysis file and not presented in a different file
+
 ## DATA ANALYSIS
 
 We conducted a series of analyses of the 2018 transactions of our customers to analyze potential fraudulent transactions.
@@ -56,31 +58,16 @@ When visualizing the transactions for Customers 2 and 18, we observe that Custom
 
 ### TARGETTED ANALYSIS OF CUSTOMER 25'S CREDIT CARD USAGE
 
-Some fraudulent charges are made early in the day, when individuals are typically not awake. We analysed the number of such charges per customer, 
+The CEO of the biggest customer of the firm (Customer 25) suspects that someone has used her corporate credit card without authorization in the first quarter of 2018 to pay quite expensive restaurant bills. Let's dive into the data to determine whether it shows us such anomalies.
 <br><br>
 <u>Our approach:</u>
-1. Group charges by cardholder
-2. Identify the number of transactions by cardholders that are at or below \\$2.00
-3. For the customers with the most transactions under \\$2.00, determine whether they are a pattern or an exception
-4. Visualize the transaction patterns for Customers 2 and 18 to determine observable instances of potential fraud
+1. Retrieve all transactions from January to June 2018 for Customer 25
+2. Visualize these transactions in a box plot per month to observe potential outliers and anomalies
 
 <u>Results:</u>
-1. 
-2. 
-
-### \\[CHALLENGE\\] STATISTICAL OUTLIERS
-
-Some fraudulent charges are made early in the day, when individuals are typically not awake. We analysed the number of such charges per customer, 
-<br><br>
-<u>Our approach:</u>
-1. Group charges by cardholder
-2. Identify the number of transactions by cardholders that are at or below \\$2.00
-3. For the customers with the most transactions under \\$2.00, determine whether they are a pattern or an exception
-4. Visualize the transaction patterns for Customers 2 and 18 to determine observable instances of potential fraud
-
-<u>Results:</u>
-1. 
-2. 
+1. We observe a total of 9 outliers over the covered time period (Jan: 1, Feb: 0, Mar: 1, Apr: 3, Mai: 1, Jun: 3), with the highest ones occuring in January, March, and June of 2018. This is a starting point for our investigation to confirm with Customer 25 whether those were indeed their charges during those given months.
+2. The mean and majority of transactions are distributed close to \\$20, and the 9 outliers wildly range from \\$100 to nearly \\$1,800. This massive shift is clearly indicative of unusual patterns that we should chase down.
 
 ## CONCLUSION & RECOMMANDATIONS
 
+While our various analyses help us observe certain breaks from patterns, they are not always indicative of fraud, and the anomalies should further be analyzed with statistical tools, such as stdev and quartile analyses, to obtain a higher degree of confidence that they are indeed outliers that should be categorized as potential fraud to be validated with Customers.
